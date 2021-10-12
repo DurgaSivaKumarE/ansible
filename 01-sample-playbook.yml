@@ -6,3 +6,7 @@
    - name: Print Helloworld
      debug:
       msg: Hello Worldsk
+
+  roles:
+    - sample
+    
