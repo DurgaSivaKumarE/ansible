@@ -1,5 +1,5 @@
 - name: Demo on vairables
- hosts: all
+  hosts: all
   vars:
    URL: google.com
  tasks:
