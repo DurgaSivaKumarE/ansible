@@ -1,4 +1,4 @@
- - name: Demo on vairables
+- name: Demo on vairables
   hosts: all
   vars:
     URL1: play.google.com
