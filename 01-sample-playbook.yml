@@ -4,5 +4,5 @@
   #hosts: all
   tasks:
    - name: Print Helloworld
-    debug:
+     debug:
       msg: Hello Worldsk
