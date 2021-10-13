@@ -4,5 +4,5 @@
 
 - name: Print URL 
   debug:
-     msg: URL ={{URL}}    
+     msg: URL ={{URL7}}    
     
