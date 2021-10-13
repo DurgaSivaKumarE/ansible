@@ -19,3 +19,8 @@
     - name: Print variable from CLI
       debug:
         msg: URL = {{URL5}}       
+    - name: Show variable precedence
+      vars:
+        URL: task.google.com
+      debug:
+        msg: URL = {{URL}}    
