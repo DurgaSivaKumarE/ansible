@@ -24,3 +24,6 @@
         URL: task.google.com
       debug:
         msg: URL = {{URL}}    
+
+   roles:
+    - sample     
