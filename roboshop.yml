@@ -11,7 +11,7 @@
     - mongodb
 
 - name: RoboShop Project Setup - Catalogue
-  hosts: CATALOGU
+  hosts: CATALOGUE
   tags: catalogue
   roles:
     - catalogue
