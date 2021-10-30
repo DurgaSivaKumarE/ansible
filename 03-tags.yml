@@ -4,8 +4,12 @@
     - name: Centos
       debug:
         msg: Centos
+      tags:
+        - centos  
 
     - name: Ubuntu
       debug:
         msg: Ubuntu
-            
+      tags:
+        - ubuntu
+          
