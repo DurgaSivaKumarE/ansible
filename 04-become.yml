@@ -1,10 +1,11 @@
 - name: Demo on become sudo
   hosts: all
-  become: yes
+  #become: yes
   tasks:
     - name: Get ID of user
       shell: id
       register: out
+      become: yes
 
     - name: Print
       debug:
