@@ -36,17 +36,6 @@
     file: "/tmp/mongodb-main/users.js"
     idempotent: yes
 
-- name: Setup Catalogue Service file
-  copy:
-    src: systemd.service
-    dest: /etc/systemd/system/catalogue.service
-
-- name: Start Catalogue service
-  systemd:
-    name: catalogue
-    state: restarted
-    enabled: yes
-    daemon_reload: yes
 
 
 

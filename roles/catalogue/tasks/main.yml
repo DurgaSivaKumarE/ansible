@@ -34,13 +34,17 @@
     path: /home/roboshop/catalogue
   become_user: roboshop
 
+- name: Setup Catalogue Service file
+  copy:
+    src: systemd.service
+    dest: /etc/systemd/system/catalogue.service
+
+- name: Start Catalogue service
+  systemd:
+    name: catalogue
+    state: restarted
+    enabled: yes
+    daemon_reload: yes
 
 
 
-#$ npm install 
-
-
-# mv /home/roboshop/catalogue/systemd.service /etc/systemd/system/catalogue.service
-# systemctl daemon-reload
-# systemctl start catalogue
-# systemctl enable catalogue
