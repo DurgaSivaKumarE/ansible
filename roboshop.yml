@@ -43,6 +43,7 @@
 - name: RoboShop Project Setup - MySql
   hosts: MYSQL
   tags: mysql
+  become: yes
   roles:
     - mysql
 
