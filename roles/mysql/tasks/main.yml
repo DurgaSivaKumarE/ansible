@@ -22,6 +22,7 @@
 - name: Check password reset ststus
   shell: echo 'show databases' | mysql -uroot -pRoboShop@1
   register: out
+  ignore_errors: yes
 
 - name: Grab default password
   shell: grep 'temporary password' /var/log/mysqld.log | awk '{print $NF}'
@@ -37,3 +38,13 @@
 - name: Reset MySQL password
   shell: mysql --connect-expired-password -u root -p"{{default_pass.stdout}}" </tmp/reset.sql
   when: out.rc !=0
+
+- name: check password validate plugin
+  shell: echo "shoe plugins; " | mysql -u root -p"RoboShop@1" 2>/dev/null | grep -i validate_password 
+  register: val_out
+  ignore_errors: yes
+
+- name: Uninstall password validate plugin
+  shell: echo "uninstall plugin validate_password" >/tmp/pass.sql
+    mysql -u root -p"RoboShop@1" </tmp/pass.sql &>>$LOG
+  when: val_out.rc == 0
