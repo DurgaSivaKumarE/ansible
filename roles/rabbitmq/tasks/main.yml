@@ -4,7 +4,7 @@
     state: present
 
 - name: Setup YUM repos
-  shell: https://packagecloud.io/install/repositories/rabbitmq/rabbitmq-server/script.rpm.sh | sudo bash
+  shell: curl -s https://packagecloud.io/install/repositories/rabbitmq/rabbitmq-server/script.rpm.sh | sudo bash
 
 - name: Install RabbitMQ server
   yum:
@@ -26,4 +26,4 @@
     read_priv: .*
     write_priv: .*
     state: present
-    tags: administrator
+    tags: administratorf
