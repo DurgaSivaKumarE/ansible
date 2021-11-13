@@ -42,13 +42,12 @@
   when: out.rc != 0
 
 - name: check password validate plugin
-  shell: echo "shoe plugins; " | mysql -u root -p"DurgaRoboshop@8" 2>/dev/null | grep -i validate_password 
+  shell: echo "show plugins; " | mysql -u root -p"DurgaRoboshop@8" 2>/dev/null | grep -i validate_password 
   register: val_out
   ignore_errors: yes
   
 - name: Uninstall password validate plugin
-  shell: echo "uninstall plugin validate_password" >/tmp/pass.sql
-    mysql -u root -p"DurgaRoboshop@81" </tmp/pass.sql 
+  shell: echo "uninstall plugin validate_password" >/tmp/pass.sql ; mysql -u root -p"DurgaRoboshop@81" </tmp/pass.sql 
   when: val_out.rc == 0
 
 - name: Download mysql Schema
