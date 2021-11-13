@@ -10,7 +10,9 @@
 
 - name: Install MySQL Server
   yum:
-    name: mysql-community-server
+    name:
+      - mysql-community-server
+      - mysql-python
     state: present
 
 - name: Start MySQL Service
@@ -62,4 +64,3 @@
     target: /tmp/mysql-main/shipping.sql
     login_password: RoboShop@1
     login_user: root
-    
