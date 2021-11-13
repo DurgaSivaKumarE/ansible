@@ -29,17 +29,17 @@
 - name: Grab default password
   shell: grep 'temporary password' /var/log/mysqld.log | awk '{print $NF}'
   register: default_pass
-  when: out.rc !=0
+  when: out.rc != 0
 
 - name: Reset MySQL file
   copy:
     src: reset.sql
     dest: /tmp/reset.sql
-  when: out.rc !=0
+  when: out.rc != 0
 
 - name: Reset MySQL password
   shell: mysql --connect-expired-password -u root -p"{{default_pass.stdout}}" </tmp/reset.sql
-  when: out.rc !=0
+  when: out.rc != 0
 
 - name: check password validate plugin
   shell: echo "shoe plugins; " | mysql -u root -p"DurgaRoboshop@8" 2>/dev/null | grep -i validate_password 
