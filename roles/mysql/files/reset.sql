@@ -1,1 +1,1 @@
-ALTER USER 'root'@'localhost' IDENTIFIED BY 'RoboShopdsk@1';
+ALTER USER 'root'@'localhost' IDENTIFIED BY 'DurgaRoboshop@8';
