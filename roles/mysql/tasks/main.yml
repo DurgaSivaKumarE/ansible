@@ -48,7 +48,7 @@
   
 - name: Uninstall password validate plugin
   shell: echo "uninstall plugin validate_password" >/tmp/pass.sql
-    mysql -u root -p"RoboShop@1" </tmp/pass.sql &>>$LOG
+    mysql -u root -p"RoboShop@1" </tmp/pass.sql 
   when: val_out.rc == 0
 
 - name: Download mysql Schema
