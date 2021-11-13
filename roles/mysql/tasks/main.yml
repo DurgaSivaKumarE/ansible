@@ -22,7 +22,7 @@
     enabled: yes
 
 - name: Check password reset ststus
-  shell: echo 'show databases' | mysql -uroot -pRoboShopDSK@1
+  shell: echo 'show databases' | mysql -uroot -pRoboShop@1
   register: out
   ignore_errors: yes
 
@@ -42,13 +42,13 @@
   when: out.rc !=0
 
 - name: check password validate plugin
-  shell: echo "shoe plugins; " | mysql -u root -p"RoboShopDSK@1" 2>/dev/null | grep -i validate_password 
+  shell: echo "shoe plugins; " | mysql -u root -p"RoboShop@1" 2>/dev/null | grep -i validate_password 
   register: val_out
   ignore_errors: yes
   
 - name: Uninstall password validate plugin
   shell: echo "uninstall plugin validate_password" >/tmp/pass.sql
-    mysql -u root -p"RoboShopDSK@1" </tmp/pass.sql 
+    mysql -u root -p"RoboShop@1" </tmp/pass.sql 
   when: val_out.rc == 0
 
 - name: Download mysql Schema
@@ -62,5 +62,5 @@
     state: import
     name: all
     target: /tmp/mysql-main/shipping.sql
-    login_password: RoboShopDSK@1
+    login_password: RoboShop@1
     login_user: root
