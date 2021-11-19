@@ -25,8 +25,20 @@
     src: roboshop.conf
     dest: /etc/nginx/default.d/roboshop.conf
 
-- name: Restart Nginx
+- name: Update Nginx Config
+  copy:
+    src: nginx.conf
+    dest: /etc/nginx/nginx.conf
+  notify: Restart Nginx
+
+- name: Start Nginx
   systemd:
     name: nginx
-    state: restarted
+    state: started
     enabled: yes
+  ignore_errors: yes
+
+- name: Include node_exporter
+  include_role:
+    name: common
+    tasks_from: node-exporter
