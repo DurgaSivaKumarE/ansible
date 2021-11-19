@@ -13,11 +13,12 @@
 - name: copy systemd file
   copy:
     src: node_exporter.service
-    dest: /etc/systemd/system/node-exporter.service
+    dest: /etc/systemd/system/node_exporter.service
 
-- name: start node exporter
+- name: Start Node exporter
   systemd:
     name: node_exporter
     state: restarted
     enabled: yes
     daemon_reload: yes
+
