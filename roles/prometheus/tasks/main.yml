@@ -2,6 +2,10 @@
   template:
     src: prometheus.yml
     dest: /opt/prometheus/prometheus.yml
+  loop:
+    - prometheus
+    - alerts
+    - recordssd
 
 - name: restart prometheus service
   systemd:
