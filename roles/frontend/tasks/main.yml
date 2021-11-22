@@ -12,7 +12,7 @@
     APP_PATH: /usr/share/nginx/html
 
 - name: Copy RoboShop Config file
-  template:
+  copy:
     src: roboshop.conf
     dest: /etc/nginx/default.d/roboshop.conf
   notify: Restart Nginx
